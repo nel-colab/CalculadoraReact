@@ -107,5 +107,6 @@ La aplicación estará disponible en [http://localhost:5173](http://localhost:51
 
 ## 📧 Contacto
 
-**Nelson Castillo**  
+**Nelson Castillo**
+GitHub: @nel-colab
 Email: nel.castillo95@gmail.com
