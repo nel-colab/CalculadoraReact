@@ -63,14 +63,7 @@ const RegisterPage = () => {
     const { nombre, user, email, confirmEmail, password, confirmPassword } =
       formData;
 
-    if (
-      !nombre ||
-      !user ||
-      !email ||
-      !confirmEmail ||
-      !password ||
-      !confirmPassword
-    ) {
+    if (!nombre || !user || !email || !confirmEmail || !password || !confirmPassword) {
       setError("Por favor, completa todos los campos.");
       return;
     }
@@ -96,7 +89,8 @@ const RegisterPage = () => {
       setError("");
       setTimeout(() => navigate("/loginPage"), 2000);
     } catch (err: any) {
-      setError(err.message || "Error al registrar");
+      console.log("Error completo:", err);
+      setError(err);
       setSuccess("");
     }
   };

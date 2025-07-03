@@ -61,19 +61,13 @@ export const register = async (payload: RegisterPayload): Promise<void> => {
   try {
     await axiosClient.post("/users/register", payload);
   } catch (error: unknown) {
-    let errorMessage = "Error al registrar usuario";
-
     if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError<{ message?: string }>;
-      errorMessage =
-        axiosError.response?.data?.message ||
-        axiosError.message ||
-        errorMessage;
+      throw error?.response?.data;
     } else if (error instanceof Error) {
-      errorMessage = error.message;
+      throw error.message;
+    } else {
+      throw new Error("Error al registrar usuario");
     }
-
-    throw new Error(errorMessage);
   }
 };
 
